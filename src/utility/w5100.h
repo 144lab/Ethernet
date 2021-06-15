@@ -48,6 +48,12 @@
 #define SPI_ETHERNET_SETTINGS SPISettings(8000000, MSBFIRST, SPI_MODE0)
 #endif
 
+// Spresense's SPI can uses SPI_MODE3 with auto cs control by hardware.
+#if defined(ARDUINO_ARCH_SPRESENSE)
+#undef SPI_ETHERNET_SETTINGS
+#define SPI_ETHERNET_SETTINGS SPISettings(10000000, MSBFIRST, SPI_MODE3)
+#endif
+
 
 typedef uint8_t SOCKET;
 

@@ -47,6 +47,11 @@
 // does not always seem to work in practice (maybe WIZnet bugs?)
 //#define ETHERNET_LARGE_BUFFERS
 
+#define SPIETH SPI
+#if defined(ARDUINO_ARCH_SPRESENSE)
+#undef SPIETH
+#define SPIETH SPI5
+#endif
 
 #include <Arduino.h>
 #include "Client.h"
